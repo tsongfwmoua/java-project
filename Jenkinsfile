@@ -1,10 +1,13 @@
-pipeline {
-	agent any
-	stage(‘Build’) {
-		sh ‘ant -f build.xml -v’
-	}
-	stage(‘Test’) {
+properties([pipelineTriggers([githubPush()])])
+
+node('linux') {   
+	stage('Test') {    
+		git 'https://github.com/tsongfwmoua/java-project.git'
+		sh ‘ant -f build.xml -v’  
+	}   
+	stage('Build') {    
 		sh 'ant -f test.xml -v'
-		junit ‘reports/*.xml’
+	}   
+	stage('Results') {    
+		junit 'reports/*.xml'   
 	}
-}

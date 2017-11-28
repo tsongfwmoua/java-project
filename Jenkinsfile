@@ -23,6 +23,8 @@ node('linux') {
 	stage('Deploy') {    
 		
 		sh 'ant -f test.xml -v'
+		
+		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-9.jar jenkins-s3bucket-deok93jvvow.s3.amazonaws.com'
 
 	}   
 	

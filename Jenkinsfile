@@ -24,7 +24,7 @@ node('linux') {
 		
 		sh 'ant -f test.xml -v'
 		
-		'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar jenkins-s3bucket-deok93jvvow.s3.amazonaws.com'
+		'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://jenkins-s3bucket-deok93jvvow'
 
 	}   
 	

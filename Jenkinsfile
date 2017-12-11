@@ -22,7 +22,7 @@ node('linux') {
 	
 	stage('Deploy') {    
 		
-		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://jenkins-s3bucket-deok93jvvow/'
+		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://jenkins-s3bucket-1l824w8p6lw7d/'
 
 	}   
 	
